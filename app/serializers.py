@@ -20,3 +20,13 @@ class ExampleSerialiser(serializers.Serializer):
         instance.description =validated_data.get('description', instance.description)
         instance.save()
         return instance
+    
+class ExampleOutputSerialiser(serializers.Serializer):
+    name = serializers.CharField(max_length = 100)
+    id = serializers.IntegerField()
+    
+    class Meta:
+        model = Item
+        fields = ['id', 'name']
+    
+    
